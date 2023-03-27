@@ -1,8 +1,8 @@
 const fs = require('fs');
 
-function countStudents(filepath) {
+async function countStudents(filepath) {
   try {
-    const csv = fs.readFileSync(filepath, { encoding: 'utf8' });
+    const csv = await fs.promises.readFile(filepath, { encoding: 'utf8' });
     const headerArray = csv.split(/\r?\n|\n/);
     const headers = headerArray[0].split(',');
 
